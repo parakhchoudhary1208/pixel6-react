@@ -4,6 +4,7 @@ export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
     const [users, setUsers] = useState([]);
+    const [allStates, setAllStates] = useState([]);
     const [loading, setLoading] = useState(true);
     const [sortConfig, setSortConfig] = useState({ key: 'id', direction: 'ascending' });
     const [genderFilter, setGenderFilter] = useState('');
@@ -15,6 +16,8 @@ export const UserProvider = ({ children }) => {
             .then(response => response.json())
             .then(data => {
                 setUsers(data.users);
+                const states = [...new Set(data.users.map(user => user.address.state))];
+                setAllStates(states);
                 setLoading(false);
             })
             .catch(() => setLoading(false));
@@ -50,6 +53,7 @@ export const UserProvider = ({ children }) => {
         <UserContext.Provider
             value={{
                 users: filteredUsers.slice(0, visibleUsers),
+                allStates,
                 loading,
                 sortConfig,
                 handleSort,
@@ -58,7 +62,6 @@ export const UserProvider = ({ children }) => {
                 genderFilter,
                 stateFilter,
                 setVisibleUsers
-
             }}
         >
             {children}

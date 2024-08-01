@@ -6,7 +6,7 @@ import { UserContext, UserProvider } from '../context/Context';
 import _ from 'lodash';
 
 const UserListContent = () => {
-    const { users, setGenderFilter, setStateFilter, genderFilter, stateFilter, setVisibleUsers, loading} = useContext(UserContext);
+    const { users, allStates, setGenderFilter, setStateFilter, genderFilter, stateFilter, setVisibleUsers, loading} = useContext(UserContext);
 
     const handleScroll = _.debounce(() => {
         if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 5 && !loading) {
@@ -36,7 +36,7 @@ const UserListContent = () => {
                     />
                     <SelectField
                         options={[...new Set(users.map(user => user.address.state))]}
-                        value={stateFilter}
+                        value={allStates}
                         onChange={(e) => setStateFilter(e.target.value)}
                         placeholder="All State"
                     />
