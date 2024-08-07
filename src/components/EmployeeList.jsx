@@ -5,7 +5,7 @@ import EmployeeTable from './EmployeeTable';
 import { UserContext, UserProvider } from '../context/Context';
 import _ from 'lodash';
 
-const UserListContent = () => {
+const EmployeeListContent = () => {
     const { users, allStates, setGenderFilter, setStateFilter, genderFilter, stateFilter, setVisibleUsers, loading} = useContext(UserContext);
 
     const handleScroll = _.debounce(() => {
@@ -55,7 +55,7 @@ const UserListContent = () => {
 
 const EmployeeList = () => (
     <UserProvider>
-        <UserListContent />
+        <EmployeeListContent />
     </UserProvider>
 );
 
