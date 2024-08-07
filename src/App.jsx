@@ -1,12 +1,12 @@
 import React from 'react';
 import Header from './components/Header/Header';
-import UserList from './components/UserList';
+import EmployeeList from './components/EmployeeList';
 
 function App() {
     return (
         <main className="min-h-screen">
             <Header/>
-            <UserList/>
+            <EmployeeList/>
         </main>
     );
 }
