@@ -53,10 +53,10 @@ const UserListContent = () => {
     );
 };
 
-const UserList = () => (
+const EmployeeList = () => (
     <UserProvider>
         <UserListContent />
     </UserProvider>
 );
 
-export default UserList;
+export default EmployeeList;
