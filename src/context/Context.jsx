@@ -1,8 +1,8 @@
 import React, { createContext, useState, useEffect } from 'react';
 
-export const UserContext = createContext();
+export const EmployeeContext = createContext();
 
-export const UserProvider = ({ children }) => {
+export const EmployeeProvider = ({ children }) => {
     const [users, setUsers] = useState([]);
     const [allStates, setAllStates] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -50,7 +50,7 @@ export const UserProvider = ({ children }) => {
     });
 
     return (
-        <UserContext.Provider
+        <EmployeeContext.Provider
             value={{
                 users: filteredUsers.slice(0, visibleUsers),
                 allStates,
@@ -65,6 +65,6 @@ export const UserProvider = ({ children }) => {
             }}
         >
             {children}
-        </UserContext.Provider>
+        </EmployeeContext.Provider>
     );
 };

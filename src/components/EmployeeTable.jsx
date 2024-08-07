@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { UserContext } from '../context/Context';
+import { EmployeeContext } from '../context/Context';
 import TableHeader from './TableHeader/TableHeader';
 import TableRow from './TableRow/TableRow';
 
 const EmployeeTable = () => {
-    const { users, loading } = useContext(UserContext);
+    const { users, loading } = useContext(EmployeeContext);
 
     return (
         <div className="overflow-x-auto rounded-lg border border-gray-200">

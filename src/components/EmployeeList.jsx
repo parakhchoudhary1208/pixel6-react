@@ -2,11 +2,11 @@ import React, { useContext, useEffect } from 'react';
 import { RiFilter2Fill } from "@remixicon/react";
 import SelectField from './SelectField/SelectField';
 import EmployeeTable from './EmployeeTable';
-import { UserContext, UserProvider } from '../context/Context';
+import { EmployeeProvider, EmployeeContext } from '../context/Context';
 import _ from 'lodash';
 
 const EmployeeListContent = () => {
-    const { users, allStates, setGenderFilter, setStateFilter, genderFilter, stateFilter, setVisibleUsers, loading} = useContext(UserContext);
+    const { users, allStates, setGenderFilter, setStateFilter, genderFilter, stateFilter, setVisibleUsers, loading} = useContext(EmployeeContext);
 
     const handleScroll = _.debounce(() => {
         if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 5 && !loading) {
@@ -41,7 +41,7 @@ const EmployeeListContent = () => {
                         placeholder="All State"
                     />
                     <SelectField
-                        options={['male', 'female']}
+                        options={['Male', 'Female']}
                         value={genderFilter}
                         onChange={(e) => setGenderFilter(e.target.value)}
                         placeholder="Gender"
@@ -54,9 +54,9 @@ const EmployeeListContent = () => {
 };
 
 const EmployeeList = () => (
-    <UserProvider>
+    <EmployeeProvider>
         <EmployeeListContent />
-    </UserProvider>
+    </EmployeeProvider>
 );
 
 export default EmployeeList;

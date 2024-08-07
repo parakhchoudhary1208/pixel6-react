@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { RiSortAlphabetAsc, RiSortAlphabetDesc, RiSortNumberAsc, RiSortNumberDesc } from "@remixicon/react";
-import { UserContext } from '../../context/Context';
+import { EmployeeContext } from '../../context/Context';
 
 const TableHeader = () => {
-    const { sortConfig, handleSort } = useContext(UserContext);
+    const { sortConfig, handleSort } = useContext(EmployeeContext);
 
     const getSortIcon = (column) => {
         if (sortConfig.key === column) {
